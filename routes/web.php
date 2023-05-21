@@ -47,8 +47,15 @@ Route::get('/course', function () {
 })->name('course');
 
 Route::get('/students', function () {
+    $page_title = 'Students';
+    $class_number = '#Classe 92';
     $data = [
-        $class_number = 'Classe 92',
+        'nav_links' => [
+            'home',
+            'course',
+            'students',
+            'about'
+        ],
         'students' => [
             'alessandro garganese',
             'alessandro pagliuca',
@@ -86,6 +93,7 @@ Route::get('/students', function () {
             'vito de palma',
         ]
     ];
+    return view('students', $data, compact('page_title', 'class_number'));
 })->name('students');
 
 Route::get('/about', function () {
