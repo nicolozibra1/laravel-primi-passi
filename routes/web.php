@@ -27,10 +27,23 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/course', function () {
+    $data = [
+        'nav_links' => [
+            'home',
+            'course',
+            'students',
+            'about'
+        ],
+        'teachers' => [
+            'Clelia Fradella',
+            'Marco Acciari',
+            'Samuel Panicucci'
+        ]
+    ];
     $page_title = 'My Course';
     $course_name = 'Boolean';
     $course_type = 'Web Developer Full Stack';
-    return view('course', compact('page_title', 'course_name', 'course_type'));
+    return view('course', $data, compact('page_title', 'course_name', 'course_type'));
 })->name('course');
 
 Route::get('/students', function () {
