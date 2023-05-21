@@ -97,5 +97,15 @@ Route::get('/students', function () {
 })->name('students');
 
 Route::get('/about', function () {
-    $description = "I'm a Web Developer based in Milan (Italy). I attend the Boolean course and I'm a student of class 92";
+    $data = [
+        'nav_links' => [
+            'home',
+            'course',
+            'students',
+            'about'
+        ]
+    ];
+    $page_title = 'About Me';
+    $description = "I'm a Web Developer based in Milan (Italy).";
+    return view('about', $data, compact('page_title', 'description'));
 })->name('about');
